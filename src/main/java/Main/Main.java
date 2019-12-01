@@ -42,5 +42,7 @@ public class Main {
         }
 
         System.out.println("TEST");
+        System.out.println("TEST2");
+        System.out.println("TEST 3 ");
     }
 }
