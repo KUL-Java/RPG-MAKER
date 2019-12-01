@@ -40,5 +40,7 @@ public class Main {
         } else {
             System.out.println("You are completely stupid");
         }
+
+        System.out.println("TEST");
     }
 }
