@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cef165e0-42a5-47dc-8b4e-a48bb64866e8" name="Default Changelist" comment="" />
+    <list default="true" id="cef165e0-42a5-47dc-8b4e-a48bb64866e8" name="Default Changelist" comment="nr trello - nazwa trello:">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +23,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$" value="feature/test2" />
         <entry key="$PROJECT_DIR$/src/main/java/Main" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -36,10 +42,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -75,6 +82,8 @@
       <list>
         <item itemvalue="JAR Application.kul-java-rpg-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.kul-java-rpg-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -92,6 +101,8 @@
       <workItem from="1574276734572" duration="36000" />
       <workItem from="1574277037993" duration="4614000" />
       <workItem from="1574353992515" duration="958000" />
+      <workItem from="1575229929687" duration="1305000" />
+      <workItem from="1575231304156" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="RPG-7 - Create first VERY BAD version of the game: Add very bad version of game, for guidance purpose">
       <created>1574279791584</created>
@@ -100,7 +111,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574279791585</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test commit for KUL Java">
+      <created>1575230460932</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575230460933</updated>
+    </task>
+    <task id="LOCAL-00003" summary="null - null: test commit on workshops">
+      <created>1575232376214</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575232376214</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,7 +145,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/main/java/Main" />
+    </ignored-roots>
     <MESSAGE value="RPG-7 - Create first VERY BAD version of the game: Add very bad version of game, for guidance purpose" />
-    <option name="LAST_COMMIT_MESSAGE" value="RPG-7 - Create first VERY BAD version of the game: Add very bad version of game, for guidance purpose" />
+    <MESSAGE value="Test commit for KUL Java" />
+    <MESSAGE value="null - null: test commit on workshops" />
+    <option name="LAST_COMMIT_MESSAGE" value="null - null: test commit on workshops" />
   </component>
 </project>
