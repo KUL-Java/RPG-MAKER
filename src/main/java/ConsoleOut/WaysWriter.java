@@ -1,9 +1,10 @@
 package ConsoleOut;
 
+import Main.Way;
 import java.util.Map;
 
-public class WaysShow {
-    public void showWays(Map<Character, String> ways, int delay, String color){
+public class WaysWriter {
+    public void Write(Map<Character, Way> ways, int delay, String color){
         for (Character name: ways.keySet()){
             try {
                 Thread.sleep(10*delay);
@@ -11,7 +12,7 @@ public class WaysShow {
                 e.printStackTrace();
             }
             String letter = name.toString();
-            String way = ways.get(name);
+            Way way = ways.get(name);
             System.out.println(color+"["+letter + "] " + way);
         }
     }

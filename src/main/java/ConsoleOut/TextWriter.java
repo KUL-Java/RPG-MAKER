@@ -1,7 +1,7 @@
 package ConsoleOut;
 
-public class StringShow {
-    void ShowString(String text, int delay, String color){
+public class TextWriter {
+    void Write(String text, int delay, String color){
         for(int i=0; i<text.length();i++){
             System.out.print(color+text.charAt(i));
             try {
