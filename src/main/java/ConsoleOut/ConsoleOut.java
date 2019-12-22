@@ -33,8 +33,7 @@ public class ConsoleOut implements UserWriter {
     }
 
     public void writeWays(Map<Character, Way> ways) {
-        Set<Map.Entry<Character, Way>> entrySet = ways.entrySet();
-        for (Map.Entry<Character, Way> entry : entrySet) {
+        for (Map.Entry<Character, Way> entry : ways.entrySet()) {
             try {
                 Thread.sleep(10 * delay);
             } catch (Exception e) {
