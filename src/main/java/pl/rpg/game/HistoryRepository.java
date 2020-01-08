@@ -1,4 +1,4 @@
-package Main;
+package pl.rpg.game;
 
 import java.util.Collections;
 

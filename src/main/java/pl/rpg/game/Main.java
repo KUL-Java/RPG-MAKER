@@ -1,4 +1,4 @@
-package Main;
+package pl.rpg.game;
 
 public class Main {
 
