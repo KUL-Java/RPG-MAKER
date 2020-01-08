@@ -1,4 +1,6 @@
-package com.company;
+package pl.rpg.menu;
+
+import pl.rpg.game.Game;
 
 import java.util.Scanner;
 
@@ -19,7 +21,7 @@ public class Main {
       if (choice == 3) {
         System.out.println("Your game is over!");
       } else if (choice == 1) {
-        // Game game = new Game(color, delay);
+//         Game game = new Game(color, delay);
 
       } else if (choice == 2) {
         System.out.println("Enter color:");
