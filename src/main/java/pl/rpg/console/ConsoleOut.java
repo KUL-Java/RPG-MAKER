@@ -1,10 +1,11 @@
-package ConsoleOut;
+package pl.rpg.console;
 
-import Main.History;
-import Main.Way;
+
+import pl.rpg.game.History;
+import pl.rpg.game.UserWriter;
+import pl.rpg.game.Way;
 
 import java.util.Map;
-import java.util.Set;
 
 public class ConsoleOut implements UserWriter {
     private int delay;
