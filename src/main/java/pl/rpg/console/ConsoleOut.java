@@ -21,7 +21,7 @@ public class ConsoleOut implements UserWriter {
         writeWays(history.getWays());
     }
 
-    void writeStory(String text) {
+    private void writeStory(String text) {
         for (char c : text.toCharArray()) {
             System.out.print(color + c);
             try {
@@ -33,7 +33,7 @@ public class ConsoleOut implements UserWriter {
         System.out.println();
     }
 
-    public void writeWays(Map<Character, Way> ways) {
+    private void writeWays(Map<Character, Way> ways) {
         for (Map.Entry<Character, Way> entry : ways.entrySet()) {
             try {
                 Thread.sleep(10 * delay);

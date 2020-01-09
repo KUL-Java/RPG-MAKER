@@ -1,7 +1,5 @@
 package pl.rpg.game;
 
-public class UserWriter {
-    public void writeHistory(History history){
-
-    }
+public interface UserWriter{
+    void writeHistory(History history);
 }
