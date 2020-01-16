@@ -1,6 +1,8 @@
 package pl.rpg.game;
 
 import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class HistoryRepository {
 
@@ -31,7 +33,17 @@ public class HistoryRepository {
 //        System.out.println("You have ran away in fear. Unfortunately there was no other chance to pass this exam... You have to repeat this year ;/");
 //
 //        System.out.println("You are completely stupid");
-        return new History("Mock", Collections.emptyMap());
+
+        Map<Character, Way> histories = new TreeMap<>();
+        histories.put('W', new Way("You can go west",-1));
+        histories.put('S', new Way("You can go south",-1));
+        histories.put('N', new Way("You can go north",-1));
+        histories.put('E', new Way("You can go east",-1));
+        return new History("Mock", histories);
+    }
+
+    public History fetchHistory(int id){
+        return new History("END", Collections.emptyMap());
     }
 
 

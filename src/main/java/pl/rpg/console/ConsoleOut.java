@@ -40,7 +40,7 @@ public class ConsoleOut implements UserWriter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println(color + "[" + entry.getKey() + "] " + entry.getValue());
+            System.out.println(color + "[" + entry.getKey() + "] " + entry.getValue().getText());
         }
     }
 }

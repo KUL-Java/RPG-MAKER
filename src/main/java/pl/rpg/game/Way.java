@@ -2,19 +2,19 @@ package pl.rpg.game;
 
 public class Way {
     private String text;
-    private History followingHistory;
+    private int followingHistoryID;
 
-    public Way(String text, History followingHistory) {
+    public Way(String text, int followingHistoryID) {
         this.text = text;
-        this.followingHistory = followingHistory;
+        this.followingHistoryID = followingHistoryID;
     }
 
     public String getText() {
         return text;
     }
 
-    public History getFollowingHistory() {
-        return followingHistory;
+    public int getFollowingHistoryID() {
+        return followingHistoryID;
     }
 
 }
