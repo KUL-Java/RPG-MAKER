@@ -1,7 +1,7 @@
 package pl.rpg.console;
 
 public enum ColorCoder {
-    BLACK("\u001B[30m"), RED("\u001B[31m"), GREEN("\u001B[32m"), YELLOW("\u001B[33m"), BLUE("\u001B[34m"), PURPLE("\u001B[35m"), WHITE("\u001B[37m"), CYAN("\u001B[36m");
+    BLACK("#000000"), RED("#FF0000"), GREEN("#008000"), YELLOW("#FFFF00"), BLUE("#0000FF"), PURPLE("#800080"), WHITE("#FFFFFF"), CYAN("#00FFFF");
     private final String colorCode;
 
     ColorCoder(String code) {
