@@ -12,8 +12,14 @@ public class ConsoleOut implements UserWriter {
     private String color;
 
     public ConsoleOut(int delay, String color) {
-        this.color = ColorCoder.getColorCode(color);
+        this.color = hexToRGB(color);
         this.delay = delay;
+    }
+
+    private static String hexToRGB(String colorHex) {
+        colorHex = colorHex.trim();
+        int length = colorHex.length();
+        return "\u001B[38:2:" + Integer.parseInt(colorHex.substring(length - 6, length - 4), 16) + ":" + Integer.parseInt(colorHex.substring(length - 4, length - 2), 16) + ":" + Integer.parseInt(colorHex.substring(length - 2, length), 16) + "m";
     }
 
     public void writeHistory(History history) {
