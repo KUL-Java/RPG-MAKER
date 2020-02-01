@@ -5,6 +5,7 @@ import pl.rpg.game.History;
 import pl.rpg.game.UserWriter;
 import pl.rpg.game.Way;
 
+import java.awt.*;
 import java.util.Map;
 
 public class ConsoleOut implements UserWriter {
@@ -17,9 +18,9 @@ public class ConsoleOut implements UserWriter {
     }
 
     private static String hexToRGB(String colorHex) {
-        colorHex = colorHex.trim();
-        int length = colorHex.length();
-        return "\u001B[38:2:" + Integer.parseInt(colorHex.substring(length - 6, length - 4), 16) + ":" + Integer.parseInt(colorHex.substring(length - 4, length - 2), 16) + ":" + Integer.parseInt(colorHex.substring(length - 2, length), 16) + "m";
+        colorHex = colorHex.replaceAll("[^a-zA-Z0-9]", "");
+        Color color = new Color(Integer.parseInt(colorHex, 16));
+        return "\u001B[38:2:" + color.getRed() + ":" + color.getGreen() + ":" + color.getBlue() + "m";
     }
 
     public void writeHistory(History history) {
