@@ -18,12 +18,12 @@ public class ConsoleOut implements UserWriter {
     }
 
     private static String hexToRGB(String colorHex) {
-        colorHex = colorHex.replaceAll("[^a-zA-Z0-9]", "");
+        colorHex = colorHex.trim();
         Color color;
         try {
-            color = new Color(Integer.parseInt(colorHex, 16));
-        } catch (NumberFormatException e) {
-            color = new Color(255, 255, 255);
+            color = Color.decode(colorHex);
+        } catch (NumberFormatException e){
+            color = Color.decode("#ffffff");
         }
         return "\u001B[38:2:" + color.getRed() + ":" + color.getGreen() + ":" + color.getBlue() + "m";
     }
