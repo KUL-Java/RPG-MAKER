@@ -1,11 +1,11 @@
 package pl.rpg.storyteller.minions;
 
 public class ThoughtDestinyMinion {
-  private ThoughtDestinyMinion destinyFinderMinion = new ThoughtDestinyMinion();
+  private static ThoughtDestinyMinion destinyFinderMinion = new ThoughtDestinyMinion();
 
   private ThoughtDestinyMinion() {}
 
-  public ThoughtDestinyMinion callMinion() {
+  public static ThoughtDestinyMinion callMinion() {
     return destinyFinderMinion;
   }
 

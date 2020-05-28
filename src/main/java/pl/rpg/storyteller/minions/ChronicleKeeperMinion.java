@@ -5,13 +5,17 @@ import pl.rpg.game.Chronicle;
 import pl.rpg.game.Library;
 @Data
 public class ChronicleKeeperMinion {
-  private ChronicleKeeperMinion chronicleKeeperMinion = new ChronicleKeeperMinion();
+  private static ChronicleKeeperMinion chronicleKeeperMinion = new ChronicleKeeperMinion();
   private Library library;
 
-  private ChronicleKeeperMinion() {}
+  private ChronicleKeeperMinion() {
+  }
 
-  public ChronicleKeeperMinion callMinion() {
+  public static ChronicleKeeperMinion callMinion() {
     return chronicleKeeperMinion;
+  }
+  public void giveMinionKeyToLibrary(Library library){
+    this.library = library;
   }
 
   public Chronicle bringChronicleByItsName(String name) {
