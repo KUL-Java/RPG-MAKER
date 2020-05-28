@@ -1,8 +1,40 @@
 package pl.rpg.game;
 
-public class UserReader {
+import java.util.Scanner;
 
-    public char fetchChoice(){
-        return 'W';
+public class UserReader {
+    private final static char[] CORRECT_LETTERS = {'W', 'S', 'N', 'E'};
+
+    Scanner scanner;
+
+    public UserReader() {
+        scanner = new Scanner(System.in);
     }
+
+
+    public char fetchChoice() {
+        String input;
+        boolean isValid;
+        do {
+            isValid=false;
+            input = scanner.nextLine();
+            if (input.length() == 1) {
+                char validInput = input.toUpperCase().charAt(0);
+                for (char letter : CORRECT_LETTERS) {
+                    if (validInput == letter) {
+                        return validInput;
+                    }
+
+                }
+
+            } else {
+                isValid = false;
+            }
+        }
+        while (!isValid);
+        return 'X'; //invalid Value
+
+
+    }
+
 }
