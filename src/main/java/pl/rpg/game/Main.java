@@ -1,6 +1,6 @@
 package pl.rpg.game;
 
-import pl.rpg.console.ConsoleOut;
+import pl.rpg.storyteller.minions.UserReader;
 
 public class Main {
 
