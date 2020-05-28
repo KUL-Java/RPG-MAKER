@@ -1,32 +1,31 @@
 package pl.rpg.game;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-@Data
+//@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Getter
 public class Chronicle {
-  public String name;
-  private LinkedList<Page> pages = new LinkedList<>();
-  private ListIterator listIterator = pages.listIterator();
+    public String name;
+    private LinkedList<Page> pages = new LinkedList<>();
+    private ListIterator<Page> listIterator;
 
-  Chronicle(String name) {
-    this.name = name;
-  }
-
-  public Page turnPage() {
-    System.out.println(pages);
-    if (!listIterator.hasNext()) {
-      return new Page("The end");
+    Chronicle(String name) {
+        this.name = name;
     }
-    return (Page) listIterator.next();
-  }
 
+    public Page turnPage() {
+        if (listIterator == null) {
+            listIterator = pages.listIterator();
+        }
+        if (!listIterator.hasNext()) {
+            return new Page("The end");
+        }
+        return listIterator.next();
+    }
 }

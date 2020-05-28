@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
      StoryTeller storyTeller = new StoryYeller();
      Library library = new Library();
-     library.addChronicles(LibraryImp.getChroniclesFromJson("chronicles.json"));
+     library.addChronicle(LibraryImp.getChroniclesFromJson("chronicles.json"));
      ChronicleKeeperMinion chronicleKeeperMinion = ChronicleKeeperMinion.callMinion();
      chronicleKeeperMinion.giveMinionKeyToLibrary(library);
      Chronicle chronicle = chronicleKeeperMinion.bringChronicleByItsName("Het onderwijs in Nederland");
