@@ -9,8 +9,11 @@ import pl.rpg.storyteller.minions.ThoughtDestinyMinion;
 public abstract class StoryTeller {
   protected MindReaderMinion mindReaderMinion;
   protected ThoughtDestinyMinion thoughtDestinyMinion;
+  final String bookInsignia = "^...^...^...^...^...^...^...^...^...^";
+  final String frame = "|";
+  final String newLiner = "\n";
+  final String theEnd = "THE END";
   Location currentLocation;
-  // TODO player creator minion
 
   public void describeLocation() {
     System.out.println(currentLocation.getDescription());
@@ -22,13 +25,11 @@ public abstract class StoryTeller {
       closeTheBook();
     } else {
       System.out.println(page);
+      System.out.println(bookInsignia);
     }
   }
 
   public void openTheBook(Chronicle chronicle) {
-    String newLiner = "\n";
-    String bookInsignia = "^...^...^...^...^...^...^...^...^...^";
-    String frame = "|";
     String stringBuilder =
         bookInsignia
             + newLiner
@@ -42,11 +43,9 @@ public abstract class StoryTeller {
   }
 
   protected void closeTheBook() {
-    String newLiner = "\n";
-    String bookInsignia = "^...^...^...^...^...^...^...^...^...^";
-    String frame = "|";
+    final String theEnd = "THE END";
     String stringBuilder =
-        bookInsignia + newLiner + frame + "THE END" + frame + newLiner + bookInsignia + newLiner;
+        bookInsignia + newLiner + frame + theEnd + frame + newLiner + bookInsignia + newLiner;
     System.out.println(stringBuilder);
   }
 }

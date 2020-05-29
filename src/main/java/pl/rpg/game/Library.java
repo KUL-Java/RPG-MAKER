@@ -15,7 +15,7 @@ public class Library {
     return new Chronicle("Untold story");
   }
 
-  public void addChronicle(Chronicle newChronicle) {
+  void addChronicle(Chronicle newChronicle) {
     this.chronicles.add(newChronicle);
   }
 }

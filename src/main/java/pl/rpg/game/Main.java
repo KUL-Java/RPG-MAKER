@@ -17,7 +17,7 @@ public class Main {
      StoryTeller storyYeller = new StoryYeller();
 
 
-     PathFindingMinion pathFindingMinion = new PathFindingMinion();
+     PathFindingMinion pathFindingMinion = PathFindingMinion.callMinion();
      Location location = new Location("Bretonia","Bretonia, dużo koni i pojebanych rycerzy",1);
      Location location1 = new Location("Imperium","Troche parowozow, wszyscy wielbia jakis mlotek",1);
      Player player = new Player("Andrzej","Andrzej wielki jak domp",1000,location);
@@ -28,7 +28,7 @@ public class Main {
          player.setCurrentLocation(pathFindingMinion.studyAncientMaps(location,"W"));
          System.out.println(player.getCurrentLocation());
      }else {
-      System.out.println("Ty kurwaaaa! Morze tam jest, ni chuj nie przejdziesz");
+      System.out.println("Impossibru");
      }
 
 
@@ -38,5 +38,8 @@ public class Main {
      ChronicleKeeperMinion chronicleKeeperMinion = ChronicleKeeperMinion.callMinion();
      chronicleKeeperMinion.giveMinionKeyToLibrary(library);
      Chronicle chronicle = chronicleKeeperMinion.bringChronicleByItsName("Het onderwijs in Nederland");
+     storyTeller.readFromChronicle(chronicle);
+     storyTeller.readFromChronicle(chronicle);
+     storyTeller.readFromChronicle(chronicle);
     }
 }

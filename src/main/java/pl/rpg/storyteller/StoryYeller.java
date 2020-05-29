@@ -17,13 +17,11 @@ public class StoryYeller extends StoryTeller {
       closeTheBook();
     } else {
       System.out.println(page);
+      System.out.println(bookInsignia);
     }
   }
 
   protected void closeTheBook() {
-    String newLiner = "\n";
-    String bookInsignia = "^...^...^...^...^...^...^...^...^...^";
-    String frame = "|";
     String storyYellerQuote =
         "*Cough* *Cough* I've been screaming for all this time, I need to drink something *Cough* *Cough";
     System.out.println(storyYellerQuote);
