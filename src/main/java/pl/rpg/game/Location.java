@@ -2,25 +2,26 @@ package pl.rpg.game;
 
 import lombok.*;
 
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Location {
   private long id;
   private String name;
   private String description;
-  private Set<LinkedLocation> linkedLocations;
+  private List<LinkedLocation> linkedLocations = new LinkedList<>();
 
-  @Setter
-  @Getter
-  @NoArgsConstructor
-  @AllArgsConstructor
-  @EqualsAndHashCode
-  public class LinkedLocation {
-    Exits exits;
-    Location linkedLocation;
+  public Location(String name, String description,long id){
+    this.name = name;
+    this.description = description;
+    this.id = id;
+  }
+  public void addLocation(LinkedLocation linkedLocation){
+    linkedLocations.add(linkedLocation);
   }
 }

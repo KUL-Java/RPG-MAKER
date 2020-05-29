@@ -11,5 +11,6 @@ public class Player {
     private String name;
     private String description;
     private int hp;
+    private Location currentLocation;
 
 }
