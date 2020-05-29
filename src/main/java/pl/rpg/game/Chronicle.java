@@ -24,7 +24,7 @@ public class Chronicle {
             listIterator = pages.listIterator();
         }
         if (!listIterator.hasNext()) {
-            return new Page("The end");
+            return null;
         }
         return listIterator.next();
     }

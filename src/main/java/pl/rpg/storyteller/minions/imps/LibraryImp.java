@@ -16,8 +16,7 @@ public class LibraryImp {
     }*/
     public static Chronicle getChroniclesFromJson(String filename) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Chronicle chronicle = objectMapper.readValue(new File("chronicles.json"),Chronicle.class);
-        return chronicle;
+        return objectMapper.readValue(new File("chronicles.json"),Chronicle.class);
     }
     public void writeToJsonFile(Chronicle chronicle) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
