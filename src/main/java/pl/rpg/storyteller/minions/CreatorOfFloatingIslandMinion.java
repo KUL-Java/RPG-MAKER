@@ -14,12 +14,12 @@ public class CreatorOfFloatingIslandMinion {
     return creatorOfFloatingIslandMinion;
   }
 
-  public void useTheAncientMagicToTeleportLocationToMysticWOrld(Location location) {
+  public void putLocationInScrools(Location location) {
     worldOfFloatingIslands.addLocation(location);
   }
 
-  public Location useTheAncientMagicToBringLocationsHere(String locationName) {
-      return worldOfFloatingIslands.summonTheFloatingIslandByName(locationName);
+  public Location markLocationOnMap(String locationName) {
+    return worldOfFloatingIslands.summonTheFloatingIslandByName(locationName);
   }
 
   public void establishPortalWithWorldOfFloatingIslands(
