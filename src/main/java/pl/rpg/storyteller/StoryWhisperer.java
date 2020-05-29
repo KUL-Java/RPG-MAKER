@@ -21,7 +21,7 @@ public class StoryWhisperer extends StoryTeller {
   }
   @Override
   protected void closeTheBook() {
-    String storyWhispererQuote = "Finally end, It was a bit embarrassing";
+    String storyWhispererQuote = "Finally the end, It was a bit embarrassing";
     System.out.println(storyWhispererQuote);
     String stringBuilder =
         bookInsignia + newLiner + frame + theEnd + frame + newLiner + bookInsignia + newLiner;

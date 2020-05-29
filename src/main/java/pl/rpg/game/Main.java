@@ -18,7 +18,7 @@ public class Main {
 
 
      PathFindingMinion pathFindingMinion = PathFindingMinion.callMinion();
-     Location location = new Location("Bretonia","Bretonia, dużo koni i pojebanych rycerzy",1);
+     Location location = new Location("Bretonia","Bretonia, dużo koni i rycerzy",1);
      Location location1 = new Location("Imperium","Troche parowozow, wszyscy wielbia jakis mlotek",1);
      Player player = new Player("Andrzej","Andrzej wielki jak domp",1000,location);
      LinkedLocation linkedLocation = new LinkedLocation("N",location1);

@@ -25,7 +25,7 @@ public class ThoughtDestinyMinion {
     }
   }
 
-  public String interpreteThoughtAsSentence(String thought) {
+  public String interpretThoughtAsSentence(String thought) {
     return thought;
   }
 }
