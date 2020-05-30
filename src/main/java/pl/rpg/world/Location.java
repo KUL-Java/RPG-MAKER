@@ -1,7 +1,6 @@
 package pl.rpg.world;
 
 import lombok.*;
-import pl.rpg.world.interactions.Command;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -39,6 +38,10 @@ public class Location {
         .map(LinkedLocation::getLocation)
         .findFirst()
         .orElse(this);
+  }
+
+  public List<PointOfInterest> getPointsOfInterests() {
+    return pointsOfInterests;
   }
 
   private void addLocation(LinkedLocation linkedLocation) {

@@ -1,13 +1,13 @@
 package pl.rpg.game;
 
 import pl.rpg.storyteller.minions.*;
+import pl.rpg.storyteller.minions.fiends.CuriousMinion;
 import pl.rpg.world.Exits;
 import pl.rpg.world.Location;
 import pl.rpg.world.PointOfInterest;
 import pl.rpg.world.interactions.Command;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Main {
 
@@ -19,6 +19,7 @@ public class Main {
     MotionMinion motionMinion = MotionMinion.callMinion();
     HeraldMinion heraldMinion = HeraldMinion.callMinion();
     GateKeeperMinion gateKeeperMinion = GateKeeperMinion.callMinion();
+    CuriousMinion curiousMinion = CuriousMinion.callMinion();
 
     Location karczma = new Location("Karczma", "Brudna, zatechła karczma Pod Upitym Kucykiem");
     Location alkierz =
@@ -37,10 +38,11 @@ public class Main {
 
     table.addCommand(
         new Command(
-            "spójrz na stół",
+            "look",
             () -> {
               return "Na cholere drązysz temat";
             }));
+    karczma.addPointsOfInterest(table);
 
     System.out.println(table.getCommands());
     Player player = new Player(karczma);
@@ -51,18 +53,20 @@ public class Main {
       heraldMinion.announce(player.getCurrentLocation().getDescription());
       heraldMinion.announce(String.valueOf(player.getCurrentLocation().getExits()));
       final String playerWill = mindReaderMinion.getPlayerWill();
-      if(gateKeeperMinion.readPlayerWill(playerWill)){
-          final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
-          try {
-              motionMinion.moveAssignedPlayer(
-                      pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
-          } catch (NullPointerException e) {
-              heraldMinion.announce(desiredDirection.getOptionName());
-          }
-      }else {
-        System.out.println("Well, sumthin went wong");
-      }
+      if (gateKeeperMinion.readPlayerWill(playerWill)) {
+        final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
+        try {
+          motionMinion.moveAssignedPlayer(
+              pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
+        } catch (NullPointerException e) {
+          heraldMinion.announce(desiredDirection.getOptionName());
 
+        }
+      } else {
+        //System.out.println("Well, sumthin went wong");
+          curiousMinion.assignLocation(player.getCurrentLocation());
+        System.out.println(curiousMinion.interact("look", "table"));
+      }
     }
   }
 }
