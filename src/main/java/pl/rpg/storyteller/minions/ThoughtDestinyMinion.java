@@ -1,5 +1,7 @@
 package pl.rpg.storyteller.minions;
 
+import pl.rpg.game.Exits;
+
 public class ThoughtDestinyMinion {
   private static ThoughtDestinyMinion destinyFinderMinion = new ThoughtDestinyMinion();
 
@@ -9,7 +11,7 @@ public class ThoughtDestinyMinion {
     return destinyFinderMinion;
   }
 
-  public double interpreteThoughtAsFraction(String thought) {
+  public double interpretThoughtAsFraction(String thought) {
     try {
       return Double.parseDouble(thought);
     } catch (NumberFormatException e) {
@@ -17,11 +19,19 @@ public class ThoughtDestinyMinion {
     }
   }
 
-  public int interpreteThoughtAsNumber(String thought) {
+  public int interpretThoughtAsNumber(String thought) {
     try {
       return Integer.parseInt(thought);
     } catch (NumberFormatException e) {
       return 0;
+    }
+  }
+
+  public Exits interpretThoughtAsExit(String thought) {
+    try {
+      return Exits.valueOf(thought);
+    } catch (IllegalArgumentException e) {
+      return Exits.NOWHERE ;
     }
   }
 

@@ -1,4 +1,4 @@
-package pl.rpg.storyteller.minions.imps;
+package pl.rpg.storyteller.minions.fiends;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.rpg.game.Chronicle;
@@ -6,7 +6,7 @@ import pl.rpg.game.Chronicle;
 import java.io.File;
 import java.io.IOException;
 
-public class LibraryImp {
+public class LibraryFiend {
 
   public static Chronicle getChroniclesFromJson(String filename) throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();

@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
 @AllArgsConstructor
 public class Player {
-    private String name;
-    private String description;
-    private int hp;
     private Location currentLocation;
 
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 }

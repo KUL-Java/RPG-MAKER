@@ -1,6 +1,6 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.game.LinkedLocation;
+import pl.rpg.game.Exits;
 import pl.rpg.game.Location;
 import java.util.List;
 
@@ -13,13 +13,13 @@ public class PathFindingMinion {
     return pathFindingMinion;
   }
 
-  public Location studyAncientMaps(Location location, String direction) {
-    List<LinkedLocation> possibleWays = location.getLinkedLocations();
-    for (LinkedLocation possibleWay : possibleWays) {
-      if (possibleWay.getExit().equals(direction)) {
-        return possibleWay.getLinkedLocation();
-      }
+  public Location studyAncientMaps(Location location, Exits exits) {
+
+    if(exits.equals(Exits.NOWHERE)){
+      throw new NullPointerException();
     }
-    return null;
+
+    System.out.println("Przechodzisz na " + exits.getOptionName());
+      return location.getLocationOn(exits);
   }
 }

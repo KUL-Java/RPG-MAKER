@@ -12,7 +12,7 @@ public class MindReaderMinion {
     return mindReaderMinion;
   }
 
-  String getPlayerWill() {
+  public String getPlayerWill() {
     return scanner.nextLine();
   }
 }

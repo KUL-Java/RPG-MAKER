@@ -1,4 +1,4 @@
-package pl.rpg.storyteller.minions.imps;
+package pl.rpg.storyteller.minions.fiends;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.rpg.game.Location;
