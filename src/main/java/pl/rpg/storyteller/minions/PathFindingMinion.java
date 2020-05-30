@@ -18,7 +18,6 @@ public class PathFindingMinion {
     if(exits.equals(Exits.NOWHERE)){
       throw new NullPointerException();
     }
-
     System.out.println("Przechodzisz na " + exits.getOptionName());
       return location.getLocationOn(exits);
   }
