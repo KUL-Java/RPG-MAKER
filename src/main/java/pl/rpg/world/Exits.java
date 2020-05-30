@@ -6,13 +6,13 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Exits {
-    NORTH("Północ"),
-    EAST("Wschód"),
-    WEST("Zachód"),
-    SOUTH("Południe"),
-    OUT("Wyjście"),
-    IN("In"),
-    DOORS("Drzwi"),
+    NORTH("NORTH"),
+    EAST("EAST"),
+    WEST("WEST"),
+    SOUTH("SOUTH"),
+    OUT("OUT"),
+    IN("IN"),
+    DOORS("DOORS"),
     NOWHERE("Nie ma takiego wyjścia!");
 
     String optionName;
