@@ -1,6 +1,7 @@
-package pl.rpg.game;
+package pl.rpg.world;
 
 import lombok.*;
+import pl.rpg.world.interactions.Command;
 
 import java.util.ArrayList;
 import java.util.HashSet;

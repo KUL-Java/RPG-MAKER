@@ -1,4 +1,4 @@
-package pl.rpg.game;
+package pl.rpg.world;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

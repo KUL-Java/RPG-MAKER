@@ -1,6 +1,6 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.game.Exits;
+import pl.rpg.world.Exits;
 
 public class ThoughtDestinyMinion {
   private static ThoughtDestinyMinion destinyFinderMinion = new ThoughtDestinyMinion();

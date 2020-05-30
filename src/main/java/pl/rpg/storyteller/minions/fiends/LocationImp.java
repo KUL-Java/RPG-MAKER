@@ -1,7 +1,7 @@
 package pl.rpg.storyteller.minions.fiends;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.rpg.game.Location;
+import pl.rpg.world.Location;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,8 +1,7 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.game.Exits;
-import pl.rpg.game.Location;
-import java.util.List;
+import pl.rpg.world.Exits;
+import pl.rpg.world.Location;
 
 public class PathFindingMinion {
   private static PathFindingMinion pathFindingMinion = new PathFindingMinion();
@@ -18,7 +17,6 @@ public class PathFindingMinion {
     if(exits.equals(Exits.NOWHERE)){
       throw new NullPointerException();
     }
-    System.out.println("Przechodzisz na " + exits.getOptionName());
       return location.getLocationOn(exits);
   }
 }

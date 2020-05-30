@@ -2,7 +2,7 @@ package pl.rpg.game;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import pl.rpg.world.Location;
 
 @Getter
 @AllArgsConstructor

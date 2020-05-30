@@ -1,25 +1,26 @@
 package pl.rpg.game;
 
 
-import pl.rpg.storyteller.StoryTeller;
-import pl.rpg.storyteller.StoryWhisperer;
-import pl.rpg.storyteller.StoryYeller;
-import pl.rpg.storyteller.minions.ChronicleKeeperMinion;
-import pl.rpg.storyteller.minions.MindReaderMinion;
-import pl.rpg.storyteller.minions.PathFindingMinion;
-import pl.rpg.storyteller.minions.ThoughtDestinyMinion;
-import pl.rpg.storyteller.minions.fiends.LibraryFiend;
+import pl.rpg.storyteller.minions.*;
+import pl.rpg.world.Exits;
+import pl.rpg.world.Location;
+import pl.rpg.world.PointOfInterest;
+import pl.rpg.world.interactions.Command;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         PathFindingMinion pathFindingMinion = PathFindingMinion.callMinion();
         ThoughtDestinyMinion thoughtDestinyMinion = ThoughtDestinyMinion.callMinion();
         MindReaderMinion mindReaderMinion = MindReaderMinion.callMinion();
+        MotionMinion motionMinion = MotionMinion.callMinion();
+        HeraldMinion heraldMinion = HeraldMinion.callMinion();
+
 
         Location karczma = new Location("Karczma", "Brudna, zatechła karczma Pod Upitym Kucykiem");
         Location alkierz = new Location("Alkierz", "Odgrodzona, ciasna klitka, z dala od zgiełku głównej sali");
@@ -30,24 +31,34 @@ public class Main {
         karczma.linkLocations(Exits.OUT, podwoje);
         podwoje.linkLocations(Exits.DOORS, karczma);
 
-        Player player = new Player(karczma);
+        PointOfInterest table = new PointOfInterest("table", "Plain old table, which probably seen more than one bar brawl");
 
+        table.addCommand(new Command("spójrz na stół", () -> {return  "Na cholere drązysz temat";}));
+
+
+        System.out.println(table);
+        Player player = new Player(karczma);
+        motionMinion.assignPlayer(player);
 
         while (true) {
-            System.out.println(String.format("--%s--", player.getCurrentLocation().getName()));
-            System.out.println(player.getCurrentLocation().getDescription());
-            System.out.println(player.getCurrentLocation().getExits());
+            heraldMinion.announce(String.format("--%s--", player.getCurrentLocation().getName()));
+            heraldMinion.announce(player.getCurrentLocation().getDescription());
+            heraldMinion.announce(String.valueOf(player.getCurrentLocation().getExits()));
+//            heraldMinion.announce();
             final String playerWill = mindReaderMinion.getPlayerWill();
-            final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
 
-            try {
-                player.setCurrentLocation(pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
-            } catch (NullPointerException e) {
-                System.out.println(desiredDirection.getOptionName());
-            }
+//            final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
+//
+//            try {
+//                motionMinion.moveAssignedPlayer(pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
+//            } catch (NullPointerException e) {
+//                heraldMinion.announce(desiredDirection.getOptionName());
+//            }
 
 
         }
 
+
     }
+
 }
