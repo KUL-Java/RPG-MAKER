@@ -1,7 +1,7 @@
 package pl.rpg.game;
 
 import pl.rpg.storyteller.minions.*;
-import pl.rpg.storyteller.minions.fiends.CuriousMinion;
+import pl.rpg.storyteller.minions.CuriousMinion;
 import pl.rpg.world.Exits;
 import pl.rpg.world.Location;
 import pl.rpg.world.PointOfInterest;
@@ -34,14 +34,16 @@ public class Main {
 
     PointOfInterest table =
         new PointOfInterest(
-            "table", "Plain old table, which probably seen more than one bar brawl");
+            "table", "");
 
     table.addCommand(
         new Command(
-            "look",
+            "obejrzyj stół",
             () -> {
-              return "Na cholere drązysz temat";
+              return "Prosty, stary stół, który prawdopodobnie ma za sobą niejedna karczemną bijatykę.";
             }));
+
+
     karczma.addPointsOfInterest(table);
 
     System.out.println(table.getCommands());
@@ -49,11 +51,12 @@ public class Main {
     motionMinion.assignPlayer(player);
 
     while (true) {
+      System.out.println();
       heraldMinion.announce(String.format("--%s--", player.getCurrentLocation().getName()));
       heraldMinion.announce(player.getCurrentLocation().getDescription());
       heraldMinion.announce(String.valueOf(player.getCurrentLocation().getExits()));
       final String playerWill = mindReaderMinion.getPlayerWill();
-      if (gateKeeperMinion.readPlayerWill(playerWill)) {
+      if (gateKeeperMinion.isExit(playerWill)) {
         final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
         try {
           motionMinion.moveAssignedPlayer(
@@ -63,9 +66,8 @@ public class Main {
 
         }
       } else {
-        //System.out.println("Well, sumthin went wong");
           curiousMinion.assignLocation(player.getCurrentLocation());
-        System.out.println(curiousMinion.interact("look", "table"));
+        System.out.println(curiousMinion.interact(playerWill));
       }
     }
   }

@@ -17,7 +17,7 @@ public class GateKeeperMinion {
     return gateKeeperMinion;
   }
 
-  public boolean readPlayerWill(String will) {
+  public boolean isExit(String will) {
     return reservedCommands.contains(will);
   }
 }
