@@ -69,7 +69,7 @@ public class Location {
     Exits exit;
     Location location;
 
-    public Exits getExit() {
+    Exits getExit() {
       return exit;
     }
 
