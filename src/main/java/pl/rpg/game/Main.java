@@ -36,23 +36,24 @@ public class Main {
 
         PointOfInterest table =
                 new PointOfInterest(
-                        "table", "");
+                        "table", "Stare stół");
 
         table.addCommand(
                 new Command(
                         "obejrzyj stół",
-                        () -> {
-                            return "Prosty, stary stół, który prawdopodobnie ma za sobą niejedna karczemną bijatykę." +
-                                    "Po dluższym przyjrzeniu się dostrzegasz wydrapany rysunek na jednej z jego nóg.";
+                        (item) -> {
+                            System.out.println(table.getDescription());
                         }));
 
         table.addCommand(
                 new Command(
-                        "obejrzyj rysunek",
-                        () -> {
+                        "przewróć stół",
+                        (item) -> {
+                            System.out.println("Przewracasz stół w pizdu");
+                            item.setDescription("Stary wyjebany stół");
+//                            item.setState("Ilosc kufli", "0");
 
-                          return Messages.messages.get(0);
-                        }));
+        }));
 
 
         karczma.addPointsOfInterest(table);

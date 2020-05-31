@@ -7,7 +7,9 @@ import pl.rpg.world.interactions.Command;
 import pl.rpg.world.interactions.Interaction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor
 @Getter
@@ -16,6 +18,8 @@ public class PointOfInterest {
     private String name;
     private String description;
     List<Command> commands = new ArrayList<>();
+    Map<String, String> pointProperties = new HashMap<>();
+
 
     public PointOfInterest(String name, String description) {
         this.name = name;
@@ -26,12 +30,10 @@ public class PointOfInterest {
         commands.add(command);
     }
 
-    public String interact(String command) {
-        return commands.stream()
+    public void interact(String command) {
+        commands.stream()
                 .filter(x -> x.getName().equals(command))
                 .map(Command::getInteraction)
-                .findFirst().orElse(() -> "Nie rozumiem.")
-                .interact();
-
+                .findFirst().orElse((item) -> System.out.println("Nie rozumiem.")).interact(this);
     }
 }

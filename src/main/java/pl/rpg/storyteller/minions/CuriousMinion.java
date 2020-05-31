@@ -26,7 +26,8 @@ public class CuriousMinion {
         String intractableObject = findObjectToPlayWith(playerCommand);
         PointOfInterest desiredPointOfInterest = getDesiredPointOfInterest(intractableObject);
         if (desiredPointOfInterest != null) {
-            return desiredPointOfInterest.interact(playerCommand);
+             desiredPointOfInterest.interact(playerCommand);
+             return desiredPointOfInterest.getDescription();
         }
         return "Something went wrong";
     }

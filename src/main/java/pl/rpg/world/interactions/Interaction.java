@@ -1,5 +1,7 @@
 package pl.rpg.world.interactions;
 
+import pl.rpg.world.PointOfInterest;
+
 @FunctionalInterface
 public interface Interaction {
-  String interact();}
+  void interact(PointOfInterest pointOfInterest);}
