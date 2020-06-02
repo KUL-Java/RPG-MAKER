@@ -1,8 +1,8 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.world.Location;
-import pl.rpg.world.PointOfInterest;
-import pl.rpg.world.interactions.Command;
+import pl.rpg.world.locations.Location;
+import pl.rpg.world.locations.PointOfInterest;
+import pl.rpg.world.locations.interactions.Command;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class CuriousMinion {
     private CuriousMinion() {
     }
 
-    public static CuriousMinion callMinion() {
+    public static CuriousMinion callCuriousMinion() {
         return curiousMinion;
     }
 

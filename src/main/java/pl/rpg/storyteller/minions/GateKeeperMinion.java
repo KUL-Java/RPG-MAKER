@@ -13,7 +13,7 @@ public class GateKeeperMinion {
 
   private GateKeeperMinion() {}
 
-  public static GateKeeperMinion callMinion() {
+  public static GateKeeperMinion callGateKeeperMinionMinion() {
     return gateKeeperMinion;
   }
 

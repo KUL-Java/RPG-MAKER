@@ -1,4 +1,4 @@
-package pl.rpg.world.interactions;
+package pl.rpg.world.locations.interactions;
 
 import java.util.*;
 

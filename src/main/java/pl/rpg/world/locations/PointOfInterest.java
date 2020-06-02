@@ -1,10 +1,9 @@
-package pl.rpg.world;
+package pl.rpg.world.locations;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.rpg.world.interactions.Command;
-import pl.rpg.world.interactions.Interaction;
+import pl.rpg.world.locations.interactions.Command;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,14 +15,12 @@ import java.util.Map;
 @Setter
 public class PointOfInterest {
     private String name;
-    private String description;
     List<Command> commands = new ArrayList<>();
-    Map<String, String> pointProperties = new HashMap<>();
+    Map<String, String> properties = new HashMap<>();
 
 
-    public PointOfInterest(String name, String description) {
+    public PointOfInterest(String name) {
         this.name = name;
-        this.description = description;
     }
 
     public void addCommand(Command command) {

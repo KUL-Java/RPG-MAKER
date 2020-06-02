@@ -1,8 +1,8 @@
 package pl.rpg.storyteller.minions;
 
 import lombok.Data;
-import pl.rpg.game.Chronicle;
-import pl.rpg.game.Library;
+import pl.rpg.storyteller.minions.chornicles.Chronicle;
+import pl.rpg.storyteller.minions.chornicles.Library;
 @Data
 public class ChronicleKeeperMinion {
   private static ChronicleKeeperMinion chronicleKeeperMinion = new ChronicleKeeperMinion();
@@ -11,7 +11,7 @@ public class ChronicleKeeperMinion {
   private ChronicleKeeperMinion() {
   }
 
-  public static ChronicleKeeperMinion callMinion() {
+  public static ChronicleKeeperMinion callChronicleKeeperMinion() {
     return chronicleKeeperMinion;
   }
   public void giveMinionKeyToLibrary(Library library){

@@ -1,4 +1,4 @@
-package pl.rpg.game;
+package pl.rpg.storyteller.minions.chornicles;
 
 import lombok.*;
 
@@ -6,7 +6,6 @@ import lombok.*;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-// @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode

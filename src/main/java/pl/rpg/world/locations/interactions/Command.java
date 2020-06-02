@@ -1,7 +1,5 @@
-package pl.rpg.world.interactions;
+package pl.rpg.world.locations.interactions;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

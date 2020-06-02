@@ -1,4 +1,4 @@
-package pl.rpg.game;
+package pl.rpg.storyteller.minions.chornicles;
 
 import java.util.ArrayList;
 import java.util.List;

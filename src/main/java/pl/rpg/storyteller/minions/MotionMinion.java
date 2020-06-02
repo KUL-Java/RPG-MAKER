@@ -1,6 +1,6 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.world.Location;
+import pl.rpg.world.locations.Location;
 import pl.rpg.game.Player;
 
 public class MotionMinion {
@@ -10,7 +10,7 @@ public class MotionMinion {
       private MotionMinion(){
 
     }
-    public static MotionMinion callMinion(){
+    public static MotionMinion callMotionMinionMinion(){
         return motionMinion;
     }
     public void moveAssignedPlayer(Location location){

@@ -7,7 +7,7 @@ public class ThoughtDestinyMinion {
 
   private ThoughtDestinyMinion() {}
 
-  public static ThoughtDestinyMinion callMinion() {
+  public static ThoughtDestinyMinion callThoughtDestinyMinion() {
     return destinyFinderMinion;
   }
 

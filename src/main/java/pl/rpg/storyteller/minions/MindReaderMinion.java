@@ -8,7 +8,7 @@ public class MindReaderMinion {
 
   private MindReaderMinion() {}
 
-  public static MindReaderMinion callMinion() {
+  public static MindReaderMinion callMindReaderMinion() {
     return mindReaderMinion;
   }
 

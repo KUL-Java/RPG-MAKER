@@ -4,12 +4,8 @@ import pl.rpg.storyteller.StoryTeller;
 import pl.rpg.storyteller.StoryYeller;
 import pl.rpg.storyteller.minions.*;
 import pl.rpg.storyteller.minions.CuriousMinion;
-import pl.rpg.storyteller.minions.fiends.LibraryFiend;
 import pl.rpg.world.Exits;
-import pl.rpg.world.Location;
-import pl.rpg.world.PointOfInterest;
-import pl.rpg.world.World;
-import pl.rpg.world.interactions.Command;
+import pl.rpg.world.WorldGenerator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,25 +13,20 @@ import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) throws IOException {
-    PathFindingMinion pathFindingMinion = PathFindingMinion.callMinion();
-    ThoughtDestinyMinion thoughtDestinyMinion = ThoughtDestinyMinion.callMinion();
-    MindReaderMinion mindReaderMinion = MindReaderMinion.callMinion();
-    MotionMinion motionMinion = MotionMinion.callMinion();
-    HeraldMinion heraldMinion = HeraldMinion.callMinion();
-    GateKeeperMinion gateKeeperMinion = GateKeeperMinion.callMinion();
-    CuriousMinion curiousMinion = CuriousMinion.callMinion();
-    LibraryFiend libraryFiend = new LibraryFiend();
-    StoryTeller storyTeller = new StoryYeller();
-    Library library = new Library();
-    library.addChronicle(LibraryFiend.getChroniclesFromJson());
+    static PathFindingMinion pathFindingMinion;
+    static ThoughtDestinyMinion thoughtDestinyMinion;
+    static MindReaderMinion mindReaderMinion;
+    static MotionMinion motionMinion;
+    static HeraldMinion heraldMinion;
+    static GateKeeperMinion gateKeeperMinion;
+    static CuriousMinion curiousMinion;
 
+    public static void main(String[] args) throws IOException {
+        summonMinions();
 
-    World world = new World(storyTeller, libraryFiend, library);
-    world.teleportLocations(prepareWorld());
-    Player player = new Player(world.getLocationByName("Karczma"));
-    world.play(player);
-  }
+        Player player = new Player(WorldGenerator.getStartingLocation());
+
+        motionMinion.assignPlayer(player);
 
   public static List<Location> prepareWorld() {
     List<Location> locations = new ArrayList<>();

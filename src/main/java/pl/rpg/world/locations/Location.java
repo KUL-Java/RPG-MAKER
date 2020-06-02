@@ -1,6 +1,7 @@
-package pl.rpg.world;
+package pl.rpg.world.locations;
 
 import lombok.*;
+import pl.rpg.world.Exits;
 
 import java.util.ArrayList;
 import java.util.HashSet;

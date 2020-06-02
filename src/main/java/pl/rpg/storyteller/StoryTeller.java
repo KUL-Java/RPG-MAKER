@@ -1,8 +1,8 @@
 package pl.rpg.storyteller;
 
-import pl.rpg.game.Chronicle;
-import pl.rpg.world.Location;
-import pl.rpg.game.Page;
+import pl.rpg.storyteller.minions.chornicles.Chronicle;
+import pl.rpg.world.locations.Location;
+import pl.rpg.storyteller.minions.chornicles.Page;
 import pl.rpg.storyteller.minions.MindReaderMinion;
 import pl.rpg.storyteller.minions.ThoughtDestinyMinion;
 

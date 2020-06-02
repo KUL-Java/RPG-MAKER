@@ -1,7 +1,7 @@
 package pl.rpg.storyteller;
 
-import pl.rpg.game.Chronicle;
-import pl.rpg.game.Page;
+import pl.rpg.storyteller.minions.chornicles.Chronicle;
+import pl.rpg.storyteller.minions.chornicles.Page;
 
 public class StoryYeller extends StoryTeller {
 

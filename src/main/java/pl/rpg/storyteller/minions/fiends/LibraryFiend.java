@@ -1,7 +1,7 @@
 package pl.rpg.storyteller.minions.fiends;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.rpg.game.Chronicle;
+import pl.rpg.storyteller.minions.chornicles.Chronicle;
 
 import java.io.File;
 import java.io.IOException;
