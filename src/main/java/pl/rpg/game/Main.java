@@ -21,6 +21,17 @@ public class Main {
     static GateKeeperMinion gateKeeperMinion;
     static CuriousMinion curiousMinion;
 
+
+    private static void summonMinions() {
+        PathFindingMinion pathFindingMinion = callPathFindingMinionMinion();
+        ThoughtDestinyMinion thoughtDestinyMinion = callThoughtDestinyMinion();
+        MindReaderMinion mindReaderMinion = callMindReaderMinion();
+        MotionMinion motionMinion = callMotionMinionMinion();
+        HeraldMinion heraldMinion = callHeraldMinionMinion();
+        GateKeeperMinion gateKeeperMinion = callGateKeeperMinionMinion();
+        CuriousMinion curiousMinion = callCuriousMinion();
+
+    }
     public static void main(String[] args) throws IOException {
         summonMinions();
 
