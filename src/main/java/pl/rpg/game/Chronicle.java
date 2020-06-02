@@ -2,30 +2,50 @@ package pl.rpg.game;
 
 import lombok.*;
 
+
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-//@Data
+// @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Getter
 public class Chronicle {
-    public String name;
-    private LinkedList<Page> pages = new LinkedList<>();
-    private ListIterator<Page> listIterator;
+  private String name;
+  private LinkedList<Page> pages = new LinkedList<>();
+  private ListIterator<Page> listIterator;
 
-    Chronicle(String name) {
-        this.name = name;
-    }
+  Chronicle(String name) {
+    this.name = name;
+  }
 
-    public Page turnPage() {
-        if (listIterator == null) {
-            listIterator = pages.listIterator();
-        }
-        if (!listIterator.hasNext()) {
-            return null;
-        }
-        return listIterator.next();
+  public Page turnPage() {
+    if (listIterator == null) {
+      listIterator = pages.listIterator();
     }
+    if (!listIterator.hasNext()) {
+      return null;
+    }
+    return listIterator.next();
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public LinkedList<Page> getPages() {
+    return pages;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setPages(LinkedList<Page> pages) {
+    this.pages = pages;
+  }
+
+  public void addPage(Page page) {
+    pages.add(page);
+  }
 }

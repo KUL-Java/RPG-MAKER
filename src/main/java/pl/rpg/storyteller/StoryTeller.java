@@ -34,7 +34,7 @@ public abstract class StoryTeller {
         bookInsignia
             + newLiner
             + frame
-            + chronicle.name.toUpperCase()
+            + chronicle.getName().toUpperCase()
             + frame
             + newLiner
             + bookInsignia

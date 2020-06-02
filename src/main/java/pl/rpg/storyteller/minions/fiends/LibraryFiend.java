@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class LibraryFiend {
 
-  public static Chronicle getChroniclesFromJson(String filename) throws IOException {
+  public static Chronicle getChroniclesFromJson() throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     return objectMapper.readValue(new File("chronicles.json"), Chronicle.class);
   }
