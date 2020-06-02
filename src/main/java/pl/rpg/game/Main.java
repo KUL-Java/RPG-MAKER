@@ -23,13 +23,13 @@ public class Main {
 
 
     private static void summonMinions() {
-        PathFindingMinion pathFindingMinion = callPathFindingMinionMinion();
-        ThoughtDestinyMinion thoughtDestinyMinion = callThoughtDestinyMinion();
-        MindReaderMinion mindReaderMinion = callMindReaderMinion();
-        MotionMinion motionMinion = callMotionMinionMinion();
-        HeraldMinion heraldMinion = callHeraldMinionMinion();
-        GateKeeperMinion gateKeeperMinion = callGateKeeperMinionMinion();
-        CuriousMinion curiousMinion = callCuriousMinion();
+        pathFindingMinion = callPathFindingMinionMinion();
+        thoughtDestinyMinion = callThoughtDestinyMinion();
+        mindReaderMinion = callMindReaderMinion();
+        motionMinion = callMotionMinionMinion();
+        heraldMinion = callHeraldMinionMinion();
+        gateKeeperMinion = callGateKeeperMinionMinion();
+        curiousMinion = callCuriousMinion();
 
     }
     public static void main(String[] args) throws IOException {
@@ -38,46 +38,26 @@ public class Main {
         Player player = new Player(WorldGenerator.getStartingLocation());
 
         motionMinion.assignPlayer(player);
+        motionMinion.assignPlayer(player);
 
-  public static List<Location> prepareWorld() {
-    List<Location> locations = new ArrayList<>();
-    Location karczma =
-        new Location(
-            "Karczma",
-            "Brudna, zatechła karczma Pod Upitym Kucykiem. "
-                + "\nJedyna interesująca tu rzeczą zdaję się być stół.");
-    Location alkierz =
-        new Location("Alkierz", "Odgrodzona, ciasna klitka, z dala od zgiełku głównej sali");
-    Location podwoje =
-        new Location("Podwoje", "Przed głównym wejsciem do karczmy Pod Upitym Kucykiem");
+        while (true) {
+            heraldMinion.announce(String.format("--%s--", player.getCurrentLocation().getName()));
+            heraldMinion.announce(player.getCurrentLocation().getDescription());
+            heraldMinion.announce(String.valueOf(player.getCurrentLocation().getExits()));
+            final String playerWill = mindReaderMinion.getPlayerWill();
+            if (gateKeeperMinion.isExit(playerWill)) {
+                final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
+                try {
+                    motionMinion.moveAssignedPlayer(
+                            pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
+                } catch (NullPointerException e) {
+                    heraldMinion.announce(desiredDirection.getOptionName());
 
-    karczma.linkLocations(Exits.NORTH, alkierz);
-    alkierz.linkLocations(Exits.SOUTH, karczma);
-    karczma.linkLocations(Exits.OUT, podwoje);
-    podwoje.linkLocations(Exits.DOORS, karczma);
-
-    PointOfInterest table = new PointOfInterest("table", "Stare stół");
-
-    table.addCommand(
-        new Command(
-            "obejrzyj stół",
-            (item) -> {
-              System.out.println(table.getDescription());
-            }));
-
-    table.addCommand(
-        new Command(
-            "przewróć stół",
-            (item) -> {
-              System.out.println("Przewracasz stół w pizdu");
-              item.setDescription("Stary wyjebany stół");
-            }));
-
-    karczma.addPointsOfInterest(table);
-    System.out.println(table.getCommands());
-    locations.add(karczma);
-    locations.add(alkierz);
-    locations.add(podwoje);
-    return locations;
-  }
+                }
+            } else {
+                curiousMinion.assignLocation(player.getCurrentLocation());
+                System.out.println(curiousMinion.interact(playerWill));
+            }
+        }
+    }
 }
