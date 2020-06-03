@@ -1,11 +1,11 @@
-package pl.rpg.world;
+package pl.rpg.world.locations;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum Exits {
+public enum Exit {
     NORTH("NORTH"),
     EAST("EAST"),
     WEST("WEST"),

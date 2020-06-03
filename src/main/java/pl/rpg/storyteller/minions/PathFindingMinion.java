@@ -1,6 +1,6 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.world.Exits;
+import pl.rpg.world.locations.Exit;
 import pl.rpg.world.locations.Location;
 
 public class PathFindingMinion {
@@ -12,11 +12,11 @@ public class PathFindingMinion {
     return pathFindingMinion;
   }
 
-  public Location studyAncientMaps(Location location, Exits exits) {
+  public Location studyAncientMaps(Location location, Exit exit) {
 
-    if(exits.equals(Exits.NOWHERE)){
+    if(exit.equals(Exit.NOWHERE)){
       throw new NullPointerException();
     }
-      return location.getLocationOn(exits);
+      return location.getLinkedLocation(exit);
   }
 }

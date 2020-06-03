@@ -1,83 +1,46 @@
 package pl.rpg.game;
 
-import pl.rpg.storyteller.StoryTeller;
-import pl.rpg.storyteller.StoryYeller;
 import pl.rpg.storyteller.minions.*;
-import pl.rpg.storyteller.minions.CuriousMinion;
-import pl.rpg.world.Exits;
-import pl.rpg.world.WorldGenerator;
+import pl.rpg.world.pregen.LocationHelper;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import static pl.rpg.storyteller.minions.GateKeeperMinion.callGateKeeperMinionMinion;
+import static pl.rpg.storyteller.minions.HeraldMinion.callHeraldMinionMinion;
+import static pl.rpg.storyteller.minions.MindReaderMinion.callMindReaderMinion;
+import static pl.rpg.storyteller.minions.PathFindingMinion.callPathFindingMinionMinion;
+import static pl.rpg.storyteller.minions.ThoughtDestinyMinion.callThoughtDestinyMinion;
+
 
 public class Main {
 
-    static PathFindingMinion pathFindingMinion;
-    static ThoughtDestinyMinion thoughtDestinyMinion;
-    static MindReaderMinion mindReaderMinion;
-    static MotionMinion motionMinion;
-    static HeraldMinion heraldMinion;
-    static GateKeeperMinion gateKeeperMinion;
-    static CuriousMinion curiousMinion;
-
+    private static PathFindingMinion pathFindingMinion;
+    private static ThoughtDestinyMinion thoughtDestinyMinion;
+    private static MindReaderMinion mindReaderMinion;
+    private static HeraldMinion heraldMinion;
+    private static GateKeeperMinion gateKeeperMinion;
 
     private static void summonMinions() {
-        PathFindingMinion pathFindingMinion = callPathFindingMinionMinion();
-        ThoughtDestinyMinion thoughtDestinyMinion = callThoughtDestinyMinion();
-        MindReaderMinion mindReaderMinion = callMindReaderMinion();
-        MotionMinion motionMinion = callMotionMinionMinion();
-        HeraldMinion heraldMinion = callHeraldMinionMinion();
-        GateKeeperMinion gateKeeperMinion = callGateKeeperMinionMinion();
-        CuriousMinion curiousMinion = callCuriousMinion();
-
+        pathFindingMinion = callPathFindingMinionMinion();
+        thoughtDestinyMinion = callThoughtDestinyMinion();
+        mindReaderMinion = callMindReaderMinion();
+        heraldMinion = callHeraldMinionMinion();
+        gateKeeperMinion = callGateKeeperMinionMinion();
     }
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) {
+
         summonMinions();
 
-        Player player = new Player(WorldGenerator.getStartingLocation());
+        LocationHelper.initialize();
+        Player player = new Player(LocationHelper.INN);
 
-        motionMinion.assignPlayer(player);
 
-  public static List<Location> prepareWorld() {
-    List<Location> locations = new ArrayList<>();
-    Location karczma =
-        new Location(
-            "Karczma",
-            "Brudna, zatechła karczma Pod Upitym Kucykiem. "
-                + "\nJedyna interesująca tu rzeczą zdaję się być stół.");
-    Location alkierz =
-        new Location("Alkierz", "Odgrodzona, ciasna klitka, z dala od zgiełku głównej sali");
-    Location podwoje =
-        new Location("Podwoje", "Przed głównym wejsciem do karczmy Pod Upitym Kucykiem");
+        while (true) {
+            heraldMinion.announce("");
+            heraldMinion.announce(String.format("--%s--", player.getCurrentLocation().getName()));
+            heraldMinion.announce(player.getCurrentLocation().getDescription());
+            heraldMinion.announce("Dostrzegasz tu możliwe wyjścia: \n" + player.getCurrentLocation().getExits());
+            player.act();
 
-    karczma.linkLocations(Exits.NORTH, alkierz);
-    alkierz.linkLocations(Exits.SOUTH, karczma);
-    karczma.linkLocations(Exits.OUT, podwoje);
-    podwoje.linkLocations(Exits.DOORS, karczma);
-
-    PointOfInterest table = new PointOfInterest("table", "Stare stół");
-
-    table.addCommand(
-        new Command(
-            "obejrzyj stół",
-            (item) -> {
-              System.out.println(table.getDescription());
-            }));
-
-    table.addCommand(
-        new Command(
-            "przewróć stół",
-            (item) -> {
-              System.out.println("Przewracasz stół w pizdu");
-              item.setDescription("Stary wyjebany stół");
-            }));
-
-    karczma.addPointsOfInterest(table);
-    System.out.println(table.getCommands());
-    locations.add(karczma);
-    locations.add(alkierz);
-    locations.add(podwoje);
-    return locations;
-  }
+        }
+    }
 }

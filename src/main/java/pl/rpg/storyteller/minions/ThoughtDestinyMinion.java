@@ -1,6 +1,6 @@
 package pl.rpg.storyteller.minions;
 
-import pl.rpg.world.Exits;
+import pl.rpg.world.locations.Exit;
 
 public class ThoughtDestinyMinion {
   private static ThoughtDestinyMinion destinyFinderMinion = new ThoughtDestinyMinion();
@@ -27,11 +27,11 @@ public class ThoughtDestinyMinion {
     }
   }
 
-  public Exits interpretThoughtAsExit(String thought) {
+  public Exit interpretThoughtAsExit(String thought) {
     try {
-      return Exits.valueOf(thought);
+      return Exit.valueOf(thought);
     } catch (IllegalArgumentException e) {
-      return Exits.NOWHERE ;
+      return Exit.NOWHERE ;
     }
   }
 
