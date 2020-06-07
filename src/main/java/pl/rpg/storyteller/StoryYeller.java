@@ -1,9 +1,14 @@
 package pl.rpg.storyteller;
 
 import pl.rpg.storyteller.minions.chornicles.Chronicle;
+import pl.rpg.storyteller.minions.chornicles.Library;
 import pl.rpg.storyteller.minions.chornicles.Page;
 
 public class StoryYeller extends StoryTeller {
+
+  public StoryYeller(Library library) {
+    super(library);
+  }
 
   @Override
   public void describeLocation() {

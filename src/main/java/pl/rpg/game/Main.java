@@ -1,63 +1,46 @@
 package pl.rpg.game;
 
-import pl.rpg.storyteller.StoryTeller;
-import pl.rpg.storyteller.StoryYeller;
 import pl.rpg.storyteller.minions.*;
-import pl.rpg.storyteller.minions.CuriousMinion;
-import pl.rpg.world.Exits;
-import pl.rpg.world.WorldGenerator;
+import pl.rpg.world.pregen.LocationHelper;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import static pl.rpg.storyteller.minions.GateKeeperMinion.callGateKeeperMinionMinion;
+import static pl.rpg.storyteller.minions.HeraldMinion.callHeraldMinionMinion;
+import static pl.rpg.storyteller.minions.MindReaderMinion.callMindReaderMinion;
+import static pl.rpg.storyteller.minions.PathFindingMinion.callPathFindingMinionMinion;
+import static pl.rpg.storyteller.minions.ThoughtDestinyMinion.callThoughtDestinyMinion;
+
 
 public class Main {
 
-    static PathFindingMinion pathFindingMinion;
-    static ThoughtDestinyMinion thoughtDestinyMinion;
-    static MindReaderMinion mindReaderMinion;
-    static MotionMinion motionMinion;
-    static HeraldMinion heraldMinion;
-    static GateKeeperMinion gateKeeperMinion;
-    static CuriousMinion curiousMinion;
-
+    private static PathFindingMinion pathFindingMinion;
+    private static ThoughtDestinyMinion thoughtDestinyMinion;
+    private static MindReaderMinion mindReaderMinion;
+    private static HeraldMinion heraldMinion;
+    private static GateKeeperMinion gateKeeperMinion;
 
     private static void summonMinions() {
         pathFindingMinion = callPathFindingMinionMinion();
         thoughtDestinyMinion = callThoughtDestinyMinion();
         mindReaderMinion = callMindReaderMinion();
-        motionMinion = callMotionMinionMinion();
         heraldMinion = callHeraldMinionMinion();
         gateKeeperMinion = callGateKeeperMinionMinion();
-        curiousMinion = callCuriousMinion();
-
     }
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) {
+
         summonMinions();
 
-        Player player = new Player(WorldGenerator.getStartingLocation());
+        LocationHelper.initialize();
+        Player player = new Player(LocationHelper.INN);
 
-        motionMinion.assignPlayer(player);
-        motionMinion.assignPlayer(player);
 
         while (true) {
+            heraldMinion.announce("");
             heraldMinion.announce(String.format("--%s--", player.getCurrentLocation().getName()));
             heraldMinion.announce(player.getCurrentLocation().getDescription());
-            heraldMinion.announce(String.valueOf(player.getCurrentLocation().getExits()));
-            final String playerWill = mindReaderMinion.getPlayerWill();
-            if (gateKeeperMinion.isExit(playerWill)) {
-                final Exits desiredDirection = thoughtDestinyMinion.interpretThoughtAsExit(playerWill);
-                try {
-                    motionMinion.moveAssignedPlayer(
-                            pathFindingMinion.studyAncientMaps(player.getCurrentLocation(), desiredDirection));
-                } catch (NullPointerException e) {
-                    heraldMinion.announce(desiredDirection.getOptionName());
+            heraldMinion.announce("Dostrzegasz tu możliwe wyjścia: \n" + player.getCurrentLocation().getExits());
+            player.act();
 
-                }
-            } else {
-                curiousMinion.assignLocation(player.getCurrentLocation());
-                System.out.println(curiousMinion.interact(playerWill));
-            }
         }
     }
 }

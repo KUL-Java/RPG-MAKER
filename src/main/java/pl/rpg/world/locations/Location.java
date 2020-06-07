@@ -1,82 +1,42 @@
 package pl.rpg.world.locations;
 
 import lombok.*;
-import pl.rpg.world.Exits;
+import pl.rpg.world.locations.poi.PointOfInterest;
+import pl.rpg.world.locations.poi.PointsOfInterestHelper;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
+@Data
 public class Location {
-  private String name;
-  private String description;
-  private Set<Exits> exits = new HashSet<>();
-  private Set<LinkedLocation> linkedLocations = new HashSet<>();
-  private List<PointOfInterest> pointsOfInterests = new ArrayList<>();
+    private String name;
+    private String description;
+    private Map<Exit, Location> linkedLocations = new HashMap<>();
+    private Map<String, PointOfInterest> pointsOfInterests = new HashMap<>();
 
-  public Location(String name, String description) {
-    this.name = name;
-    this.description = description;
-  }
-
-  public void addPointsOfInterest(PointOfInterest pointOfInterest) {
-    pointsOfInterests.add(pointOfInterest);
-  }
-
-  public void linkLocations(Exits exit, Location destinyLocation) {
-    final LinkedLocation linkedLocation = new LinkedLocation(exit, destinyLocation);
-    this.addLocation(linkedLocation);
-    this.exits.add(linkedLocation.getExit());
-  }
-
-  public Location getLocationOn(Exits exit) {
-    return linkedLocations.stream()
-        .filter(linkedLocation -> linkedLocation.getExit().equals(exit))
-        .map(LinkedLocation::getLocation)
-        .findFirst()
-        .orElse(this);
-  }
-
-  public List<PointOfInterest> getPointsOfInterests() {
-    return pointsOfInterests;
-  }
-
-  private void addLocation(LinkedLocation linkedLocation) {
-    linkedLocations.add(linkedLocation);
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public Set<Exits> getExits() {
-    return exits;
-  }
-
-  @Setter
-  @Getter
-  @NoArgsConstructor
-  @AllArgsConstructor
-  @EqualsAndHashCode
-  private class LinkedLocation {
-    Exits exit;
-    Location location;
-
-    Exits getExit() {
-      return exit;
+    public Location(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
-    @Override
-    public String toString() {
-      return String.format("LinkedLocation{%s - %s}", this.location.name, this.exit);
+    public Set<Exit> getExits() {
+        return linkedLocations.keySet();
     }
-  }
+
+    public Location getLinkedLocation(Exit exit) {
+        return linkedLocations.getOrDefault(exit, this);
+    }
+
+    public void linkLocations(Exit exit, Location destinyLocation) {
+        linkedLocations.put(exit, destinyLocation);
+    }
+
+    public void addPointsOfInterest(String key, PointOfInterest pointOfInterest) {
+        pointsOfInterests.put(name, pointOfInterest);
+    }
+
+    private PointOfInterest getPointOfInterest(String name) {
+        return pointsOfInterests.getOrDefault(name, PointsOfInterestHelper.INVALID_POI);
+    }
 }
