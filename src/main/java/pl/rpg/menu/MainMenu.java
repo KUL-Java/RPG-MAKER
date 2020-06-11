@@ -1,37 +1,40 @@
 package pl.rpg.menu;
 
-import pl.rpg.game.Game;
-
 import java.awt.*;
-import java.util.Scanner;
+
+import static pl.rpg.menu.Option.printOptions;
 
 public class MainMenu {
-    private ScannerHelper scanner;
-    private String color = Color.BLACK.toString();
-    private int delay = 100;
+  private UserUtils userUtils;
+  private static final String DEFAULT_COLOR = Color.BLACK.toString();
+  private static final int DEFAULT_DELAY = 100;
+
+  public MainMenu(UserUtils userUtils) {
+    this.userUtils = userUtils;
+  }
+
+  public void controlLoop() {
+
+    Option choice;
+    do {
+      printOptions();
+      choice = Option.createFromInt(UserUtils.takeNumber());
+      UserUtils.nextL();
+      if (choice == Option.EXIT) {
+       userUtils.printExit();
+      } else if (choice == Option.NEW_GAME) {
+        // Game game = new Game(color, delay);
+      } else if (choice == Option.SETTINGS) {
+        printSettings();
+      } else {
+       userUtils.wrongChoice();
+      }
+    } while (choice != Option.EXIT);
+  }
+
+  private void printSettings() {
+    System.out.println("Settings");
+  }
 
 
-    public void showMenu() {
-
-        int choice = scanner.takeNumber();
-        do {
-            System.out.println("New game - press 1");
-            System.out.println("Settings - press 2");
-            System.out.println("Quit - press 3");
-
-            if (choice == 3) {
-                System.out.println("Your game is over!");
-            } else if (choice == 1) {
-                // Game game = new Game(color, delay);
-
-            } else if (choice == 2) {
-                System.out.println("Enter color:");
-                color = scanner.takeColor();
-
-                System.out.println("Enter delay:");
-                delay = scanner.takeNumber();
-            }
-
-        } while (choice == 2);
-    }
 }
