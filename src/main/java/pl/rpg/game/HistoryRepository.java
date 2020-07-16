@@ -11,7 +11,7 @@ public class HistoryRepository {
     }
 
     public History getFirstHistory() {
-        return histories.getHistory(1);
+        return histories.getHistory(0);
     }
 
     public History fetchHistory(int id) {
