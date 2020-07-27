@@ -14,27 +14,16 @@ public class UserReader {
 
     public char fetchChoice() {
         String input;
-        boolean isValid;
-        do {
-            isValid=false;
-            input = scanner.nextLine();
-            if (input.length() == 1) {
-                char validInput = input.toUpperCase().charAt(0);
-                for (char letter : CORRECT_LETTERS) {
-                    if (validInput == letter) {
-                        return validInput;
-                    }
-
+        input = scanner.nextLine();
+        if (input.length() == 1) {
+            char formatedInput = input.toUpperCase().charAt(0);
+            for (char letter : CORRECT_LETTERS) {
+                if (formatedInput == letter) {
+                    return formatedInput;
                 }
-
-            } else {
-                isValid = false;
             }
         }
-        while (!isValid);
-        return 'X'; //invalid Value
-
-
-    }
-
+        throw new IllegalArgumentException();
+    }//ma pobrać poprawny input (poprawny komunikat), podać input jeszcze raz
 }
+
