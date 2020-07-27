@@ -24,6 +24,6 @@ public class UserReader {
             }
         }
         throw new IllegalArgumentException();
-    }//ma pobrać poprawny input (poprawny komunikat), podać input jeszcze raz
+    }//ma pobrać poprawny input (poprawny komunikat), podać input jeszcze raz.
 }
 
